@@ -63,10 +63,12 @@ public class Main extends AppCompatActivity {
         for (int i = 0; i < 5; i++) {
             ArrayList<String> items = new ArrayList<>();
             for (int j = 0; j < 2; j++) {
-                items.add(j, "Child of parent" + i);
+                items.add(j, "Child of parent " + i);
             }
             childItems.add(i, items);
 
         }
+        childItems.get(2).add("Child of Parent 2");
+
     }
 }

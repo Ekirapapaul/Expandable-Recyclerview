@@ -37,6 +37,12 @@ public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.ParentHold
 
     @Override
     public void onBindViewHolder(ParentAdapter.ParentHolder holder, int position) {
+        holder.tv_parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Tag" ," clicked");
+            }
+        });
         holder.tv_parent.setText(parentItems.get(position));
         holder.recyclerView.setLayoutManager(new CustomLinearLayoutManager(context));
         holder.recyclerView.setAdapter(new ChildAdapter(context, childItems.get(position)));
@@ -49,7 +55,6 @@ public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.ParentHold
     }
 
     public void expand(ArrayList<String> items, int position) {
-        Log.d("Size", "" + items.size());
         childItems.get(position).clear();
         for (int i = 0; i < items.size(); i++) {
             childItems.get(position).add(i, items.get(i));
